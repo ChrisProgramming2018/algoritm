@@ -1,0 +1,2 @@
+Write a function that takes a Binary Tree and returns a list of its branch
+sums(ordered from leftmost branch sum). A brunch 
