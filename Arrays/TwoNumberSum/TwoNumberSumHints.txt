@@ -1,0 +1,2 @@
+Try using two for loops to sum all possible pairs of numbers in the input array.
+What are the time and space implications of this approach?
