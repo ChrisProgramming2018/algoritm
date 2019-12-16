@@ -1,0 +1,10 @@
+Three Number Sum
+
+
+Write a function that takes a non empty array of distinct integers and an
+integer representing a tartget sum. The function should find all triplets in an
+array that sum up to the target sum and return a two dimensonal array of all
+triplets. The numbers in each triplet should be ordered in ascending order, and
+the triplet themselves should be ordered in ascending ordered with respect tot
+the number they hold. If no three numbers sum up to the tartget sum, the
+function should return an empty array.
