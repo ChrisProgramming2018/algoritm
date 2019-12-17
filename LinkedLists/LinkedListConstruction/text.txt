@@ -1,0 +1,6 @@
+Linked List Construction
+
+
+Write a class for a Doubly Linked List. The class should have a "head" and
+"tail" properties both of which should point either to None value or to a Linked
+List Node
