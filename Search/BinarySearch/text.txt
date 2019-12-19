@@ -1,0 +1,10 @@
+Binary Search
+
+
+Write a function that takes in a sorted array of integers as well a target
+integer.
+The function should use the Binary Search algorithm to find if the target number
+is contained in the array and should return its index if its in otherwise -1
+
+Input = [0,1,21,33,45,45,61,71,72,73], 33
+out = 3
