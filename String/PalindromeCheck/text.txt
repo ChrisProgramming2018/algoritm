@@ -1,0 +1,5 @@
+
+
+Write a function that takes in a non empty string and that returns a boolean 
+representing if the string is a palindrome or not.
+Definition of Palindrome its written forward and backwards the same.
