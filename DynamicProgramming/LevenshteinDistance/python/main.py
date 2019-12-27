@@ -10,7 +10,14 @@ def levenshteinDistance(str1, len_str1, str2, len_str2):
         param1: str
         param2: str
     Return: int represents the levenshteinDistance
-
+    >>> w = " "
+    >>> s = " "
+    >>> levenshteinDistance(w, len(w)-1, s, len(s) - 1)
+    0
+    >>> w = "hello"
+    >>> s = "h"
+    >>> levenshteinDistance(w, len(w)-1, s, len(s) - 1)
+    4
     """
 
     # base cases 
