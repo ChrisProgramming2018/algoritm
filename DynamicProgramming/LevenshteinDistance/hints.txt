@@ -1,0 +1,12 @@
+Hint #1
+
+Build a 2 dim array of min num of edits for pairs of substrings of the
+input strings. 
+Rows of the array represent substrings of the second input string
+str2. 
+Let the first row represent the empty string. Let each row i thereafter
+represent the substrings of str2 [0,i). Let the columns similarly represent the
+first input string str1.
+
+
+
