@@ -45,7 +45,7 @@ def levenshteinDistance(str1, len_str1, str2, len_str2):
 
 
 
-# timeO(n+m) | Space O(n+m)
+# timeO(n*m) | Space O(n*m)
 def levenshteinDistance1(str1, str2):
     """Use Dynamic Programming to reduce complexity
 
