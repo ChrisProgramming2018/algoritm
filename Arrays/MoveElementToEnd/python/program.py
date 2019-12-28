@@ -1,8 +1,18 @@
 
 
 
-#  
+#time O(n) | space O(1)
 def moveElementToEnd(array, toMove):
+    """ Moves the toMove int to the end of the list
+    in place and linear in time
+    
+    Args:
+       param1: list of int
+       param2: int
+
+    Return: 
+          
+    """
     # case array is empty or has 1 just return it
     if len(array) < 2:
         return array
