@@ -6,8 +6,10 @@ def quickSort(array):
     """ 
 
     """
+    if len(array) < 2:
+        return array
     start = 0
-    end = len(array)
+    end = len(array) - 1
     sorted_array = recursion(array, start, end)
     return sorted_array
 
@@ -19,13 +21,14 @@ def  recursion(array, left, right):
     """
     
     """
+    #print("left {} right {}".format(left, right))
     if left >=right:
-        return
+        return 
     pos = helper(array, left, right)
     # call left side
     recursion(array, left, pos - 1)
     recursion(array, pos + 1, right)
-
+    return array
 
 
 
@@ -48,24 +51,33 @@ def helper(array, left, right, if_random=True):
         pos = np.random.randint(left, right)
         pivot = array[pos]
     lp = left
-    right = right
+    rp = right
     # put the pivot element at the first place
     array[left], array[pos] = array[pos], array[left] 
     # switch the pivolement
     while True:
-        while lp =< rp and array[lp] <= pivot:
+        while lp < rp and array[lp] <= pivot:
             lp +=1
-        while lp < rp and array[rp] > pivot:
+        while rp >= lp and array[rp] > pivot:
             rp -=1
+
+        #print("left {} right {}".format(lp, rp))
+        #print("left {} right {}".format(array[lp], array[rp]))
+        #print("pivo {}".format(array[pos]))
         if lp >= rp:
             break
         # now lp points on element greater than pivot and rp on smaller
         array[lp], array [rp] = array[rp], array[lp]
         
     # swap the pivot element to the right position        
-    if array[lp] > pivot:
+    if  pivot <= array[lp]:
         lp -=1
     array[left], array [lp] = array[lp], array[left]
     return lp
         
 
+
+
+if __name__ == "__main__":
+    array = [-7, 2, 3, 8, -10, 4, -6, -10, -2, -7, 10, 5, 2, 9, -9, -5, 3, 8]
+    print(quickSort(array))
