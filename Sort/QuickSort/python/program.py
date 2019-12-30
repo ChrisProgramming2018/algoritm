@@ -14,7 +14,7 @@ def quickSort(array, if_random=True):
        param2: bool default Ture use random pivot
 
 
-    Return: sorted array 
+    Return: sorted array
 
     """
     # case if array is empty or has only one element
@@ -26,10 +26,7 @@ def quickSort(array, if_random=True):
     return sorted_array
 
 
-
-
-
-def  recursion(array, left, right, if_random=True):
+def recursion(array, left, right, if_random=True):
     """ Calls the divide part recusivly on the left and right part of the pivot
     element
     Args:
@@ -41,8 +38,8 @@ def  recursion(array, left, right, if_random=True):
     Return:
     """
     # base case if the sub array contains only 1 element
-    if left >=right:
-        return 
+    if left >= right:
+        return
     pos = helper(array, left, right)
     # call left side
     recursion(array, left, pos - 1)
@@ -50,25 +47,23 @@ def  recursion(array, left, right, if_random=True):
     return array
 
 
-
-
 def helper(array, left, right, if_random=True):
-    """ Sort sub array by choosing the pivot and 
-         bring the elements on the correct side 
+    """ Sort sub array by choosing the pivot and
+         bring the elements on the correct side
          set the pivot element om the final postion and
          return this position
 
-    
+
     Args:
         param1: array (list of int) subarray
         param2: left (int) left boundry
         param3: rigth(int)
-    
-    
+
+
     Return:
         pivot position
     >>> array = [ 8, 10, 6, 4, 2, 5, 13, 15, 14, 11, 17]
-    >>> helper(array, 0, len(array) - 1, False) 
+    >>> helper(array, 0, len(array) - 1, False)
     """
 
     pos = left
@@ -79,27 +74,24 @@ def helper(array, left, right, if_random=True):
     lp = left
     rp = right
     # put the pivot element at the first place
-    array[left], array[pos] = array[pos], array[left] 
+    array[left], array[pos] = array[pos], array[left]
     # switch the pivolement
     while True:
         while lp < rp and array[lp] <= pivot:
-            lp +=1
+            lp += 1
         while rp >= lp and array[rp] > pivot:
-            rp -=1
+            rp -= 1
 
         if lp >= rp:
             break
         # now lp points on element greater than pivot and rp on smaller
-        array[lp], array [rp] = array[rp], array[lp]
-        
-    # swap the pivot element to the right position        
-    if  pivot <= array[lp]:
-        lp -=1
-    array[left], array [lp] = array[lp], array[left]
+        array[lp], array[rp] = array[rp], array[lp]
+
+    # swap the pivot element to the right position
+    if pivot <= array[lp]:
+        lp -= 1
+    array[left], array[lp] = array[lp], array[left]
     return lp
-        
-
-
 
 if __name__ == "__main__":
     array = [-7, 2, 3, 8, -10, 4, -6, -10, -2, -7, 10, 5, 2, 9, -9, -5, 3, 8]
