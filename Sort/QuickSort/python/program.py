@@ -30,7 +30,7 @@ def  recursion(array, left, right):
 
 
 
-def helper(array, left, right):
+def helper(array, left, right, if_random=True):
     """
     
     Args:
@@ -39,29 +39,33 @@ def helper(array, left, right):
     Return:
         pivot position
     >>> array = [ 8, 10, 6, 4, 2, 5, 13, 15, 14, 11, 17]
-    
+    >>> helper(array, 0, len(array) - 1, False) 
     """
-    pivot = array[np.random.randint(0,len(array))]
-    pos = np.random.randint(0,len(array))
+
+    pos = left
     pivot = array[pos]
-    left = left
+    if if_random:
+        pos = np.random.randint(left, right)
+        pivot = array[pos]
+    lp = left
     right = right
     # put the pivot element at the first place
-    print("pivot", pos)
+    array[left], array[pos] = array[pos], array[left] 
     # switch the pivolement
     while True:
-        while left < right and array[left] <= pivot:
-            left +=1
-        while right > left and array[right] > pivot:
-            right -=1
-        array[left], array [right] = array[right], array[left]
-        if right == left:
-            # swap pivo element to the pivo pos
-            if array[left] > pivot:
-                right -=1
-            array[pos], array [right] = array[right], array[pos]
+        while lp =< rp and array[lp] <= pivot:
+            lp +=1
+        while lp < rp and array[rp] > pivot:
+            rp -=1
+        if lp >= rp:
             break
-    print(array)
-    return pos
+        # now lp points on element greater than pivot and rp on smaller
+        array[lp], array [rp] = array[rp], array[lp]
+        
+    # swap the pivot element to the right position        
+    if array[lp] > pivot:
+        lp -=1
+    array[left], array [lp] = array[lp], array[left]
+    return lp
         
 
