@@ -1,5 +1,3 @@
-import math
-
 # Do not edit the class below except for the buildHeap,
 # siftDown, siftUp, peek, remove, and insert methods.
 # Feel free to add new properties and methods to the class.
@@ -12,35 +10,47 @@ class MinHeap:
         # Write your code here.
         if len(array) == 0:
             return None
-        
+        self.heap = array
         self.length = len(array)
         # get last parent 
         start = self.getIdxParent(self.length - 1)
         # for each parent until -1 also need 0(root) 
         for i in range(start,-1,-1):
             idx = i
-            for i in range(start,-1,-1):
-                idx = i
-                while True:
-                    # get value
-                    parent_value = array[idx]
-                    # get left and right child
-	            left_value = self.getLeftChild(idx)
-	            right_value = self.getIdxRightChild(idx)
-	            # which is smaller
-	            if left_value <= right_value:
-	                # left is smaller compare to parent
-	                if left_value < parent_value:
-	                    # swap left and parent
-	                    array[idx], array[self.getIdxLeftChild(idx)] = array[self.getIdxLeftChild(idx)] ,array[idx] 
-	            if right_value < left_value:
-	                if right_value < parent_value:
-	                    # swap right and parent
-	                    array[idx], array[self.getIdxRightChild(idx)] = array[self.getIdxRightChild(idx)] ,array[idx]
-	            # get parent idx if None break
-                    idx = self.getIdxParent(idx)
-	            if idx == None:
-                        break
+            while True:
+                # get value
+                parent_value = array[idx]
+                
+                # get left and right child
+                left_value = self.getLeftChild(idx)
+                right_value = self.getRightChild(idx)
+                left_idx = self.getIdxLeftChild(idx)
+                right_idx = self.getIdxRightChild(idx)
+                # case if right is None
+                if right_value == None:
+                    if left_value < parent_value:
+                            # swap left and parent
+                            self.heap[idx], self.heap[left_idx] = self.heap[left_idx], self.heap[idx]
+                 
+                # which is smaller
+                if left_value <= right_value:
+                    # left is smaller compare to parent
+                    if left_value < parent_value:
+                        # swap left and parent
+                        self.heap[idx], self.heap[left_idx] = self.heap[left_idx], self.heap[idx] 
+                        
+                elif right_value < left_value:
+                    print("right smaller ")
+                    if right_value < parent_value:
+                        # swap right and parent
+                        self.heap[idx], self.heap[right_idx] = self.heap[right_idx], self.heap[idx]
+                # get parent idx if None break
+                idx = self.getIdxParent(idx)
+                if idx == -1:
+                    break
+                
+                    
+        return array
         
 
     def siftDown(self):
@@ -74,13 +84,13 @@ class MinHeap:
         """
         
         """
-        return idx * 2 + 1
+        return idx * 2 + 2
     
     def getIdxLeftChild(self, idx):
         """
         
         """
-        return idx * 2 + 2
+        return idx * 2 + 1
  
     
     def getParent(self, idx):
@@ -95,7 +105,7 @@ class MinHeap:
     def getLeftChild(self, index):
         """
         """
-        pos = index * 2 + 2
+        pos = index * 2 + 1
         try:
             return self.heap[pos]
         except:
@@ -106,7 +116,7 @@ class MinHeap:
         """
         
         """
-        pos = index * 2 + 1
+        pos = index * 2 + 2
         try:
             return self.heap[pos]
         except:
