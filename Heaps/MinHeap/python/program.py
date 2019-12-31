@@ -19,12 +19,28 @@ class MinHeap:
         # for each parent until -1 also need 0(root) 
         for i in range(start,-1,-1):
             idx = i
-            while idx >= 0:
-                # get value
-                value = array[idx]
-                print(value)
-                break
-        return array
+            for i in range(start,-1,-1):
+                idx = i
+                while True:
+                    # get value
+                    parent_value = array[idx]
+                    # get left and right child
+	            left_value = self.getLeftChild(idx)
+	            right_value = self.getIdxRightChild(idx)
+	            # which is smaller
+	            if left_value <= right_value:
+	                # left is smaller compare to parent
+	                if left_value < parent_value:
+	                    # swap left and parent
+	                    array[idx], array[self.getIdxLeftChild(idx)] = array[self.getIdxLeftChild(idx)] ,array[idx] 
+	            if right_value < left_value:
+	                if right_value < parent_value:
+	                    # swap right and parent
+	                    array[idx], array[self.getIdxRightChild(idx)] = array[self.getIdxRightChild(idx)] ,array[idx]
+	            # get parent idx if None break
+                    idx = self.getIdxParent(idx)
+	            if idx == None:
+                        break
         
 
     def siftDown(self):
