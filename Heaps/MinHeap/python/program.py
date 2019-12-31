@@ -26,21 +26,21 @@ class MinHeap:
                 right_value = self.getRightChild(idx)
                 left_idx = self.getIdxLeftChild(idx)
                 right_idx = self.getIdxRightChild(idx)
+                
                 # case if right is None
                 if right_value == None:
                     if left_value < parent_value:
                             # swap left and parent
-                            self.heap[idx], self.heap[left_idx] = self.heap[left_idx], self.heap[idx]
-                 
+                            self.heap[idx], self.heap[left_idx] = self.heap[left_idx], self.heap[idx]                
+                
                 # which is smaller
-                if left_value <= right_value:
+                elif left_value <= right_value:
                     # left is smaller compare to parent
                     if left_value < parent_value:
                         # swap left and parent
                         self.heap[idx], self.heap[left_idx] = self.heap[left_idx], self.heap[idx] 
                         
                 elif right_value < left_value:
-                    print("right smaller ")
                     if right_value < parent_value:
                         # swap right and parent
                         self.heap[idx], self.heap[right_idx] = self.heap[right_idx], self.heap[idx]
@@ -72,8 +72,11 @@ class MinHeap:
         # restore the min heap proberty
         
     def insert(self, value):
-        # Write your code here.
-        pass
+        """
+        
+        """
+        self.heap.append(value)
+        
     
     def getIdxParent(self, idx):
         """
