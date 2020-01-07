@@ -10,4 +10,6 @@ def findClosestValueInBst(tree, target):
     Return: the closet value in the BST 
     """
 
-
+    # case the root value is the target
+    if tree.value == target:
+        return target
