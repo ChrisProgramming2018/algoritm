@@ -1,0 +1,14 @@
+Find Closet Value in BST
+
+
+You are given a BST data structure consisting of BST nodes.
+Each BST node has an integer value stored in a property called "value" and two
+childeren left and right.
+
+BST node := value is greater to every node to its left and less or equal to all
+values to its right.
+
+Childeren are BST nodes or None
+
+You are given are target value. Write a function that finds the closest value in
+the BST. Assume there will be only one closest value
