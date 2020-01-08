@@ -29,8 +29,8 @@ std::vector<int> selectionSort(std::vector<int> array) {
 }
 
 
-
-
+void swap(int left, int right, std::vector<int> *array) {
+  int temp = array->(left);
+  array->at(left) = array->at(right);
+  array->(right) = tmp;
 }
-
-void swap(int left, int right, std::vector<int> *array);
