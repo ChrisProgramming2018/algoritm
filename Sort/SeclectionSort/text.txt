@@ -1,0 +1,8 @@
+
+Selection Sort 
+
+Sorts the given array by repeadedly finding the minimum element 
+it keeps two subarrays in the array
+
+
+sorts inplace 
