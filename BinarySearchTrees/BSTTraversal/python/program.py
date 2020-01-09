@@ -2,7 +2,11 @@
 
 
 def inOrderTraverse(tree, array):
-    """
+    """ Return the BST values in inOrder
+        left root right
+    Args:
+        param1: (class BST) tree
+        param2: (list) array solution
     """
     if tree is None:
         return array
@@ -14,7 +18,11 @@ def inOrderTraverse(tree, array):
 
 
 def preOrderTraverse(tree, array):
-    """
+    """ Returns the BST values in preOrder
+        root left right
+    Args:
+        param1: (class BST) tree
+        param2: (list) array solution
 
     """
     if tree is None:
@@ -27,8 +35,12 @@ def preOrderTraverse(tree, array):
 
 
 def postOrderTraverse(tree, array):
-    """
+    """ Returns the BST values in postOrder
+        left right root
 
+    Args:
+        param1: (class BST) tree
+        param2: (list) array solution
     """
     if tree is None:
         return array
