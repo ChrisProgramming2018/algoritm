@@ -1,11 +1,12 @@
 
+# implemention of Brunch sum
+
+
 class BinaryTree:
     def __init__(self, value):
         self.value = value
         self.left = None
         self.right = None
-
-
 
 
 def branchSums(tree):
@@ -14,10 +15,9 @@ def branchSums(tree):
     Args:
         param1: (class BinaryTree)
     Return:
-    
+
     """
     return rekursiveSums(tree, [], 0)
-
 
 
 def rekursiveSums(tree, sums, value):
@@ -25,7 +25,7 @@ def rekursiveSums(tree, sums, value):
     Traverse the tree in preorder root left right
     Args:
         param1:(class BinaryTree)
-        param2:(list) sums 
+        param2:(list) sums
         param3:(int) value
 
     """
@@ -39,7 +39,7 @@ def rekursiveSums(tree, sums, value):
     if tree.left is None and tree.right is None:
         sums.append(new_value)
 
-    # travers to the tree in preorder 
+    # travers to the tree in preorder
     rekursiveSums(tree.left, sums, new_value)
     rekursiveSums(tree.right, sums, new_value)
-
+    return suns
