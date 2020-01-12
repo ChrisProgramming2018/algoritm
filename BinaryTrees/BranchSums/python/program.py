@@ -42,4 +42,4 @@ def rekursiveSums(tree, sums, value):
     # travers to the tree in preorder
     rekursiveSums(tree.left, sums, new_value)
     rekursiveSums(tree.right, sums, new_value)
-    return suns
+    return sums
