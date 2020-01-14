@@ -1,0 +1,5 @@
+
+
+Node has memeber var name and list of childeren. The nodes create a tree
+structure. The function takes as Input such a tree and returns a list wehre the node in
+a BFS order.
