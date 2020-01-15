@@ -29,3 +29,15 @@ class JobGraph:
         jobNode = self.getNode(job)
         prereqNode = self.getNode(prereq)
         jobNode.prereqs.append(prereqNode)
+
+
+def topolgicalSort(jobs, deps):
+    """
+
+    """
+
+
+def createJobGraph(jobs, deps):
+    """
+
+    """
