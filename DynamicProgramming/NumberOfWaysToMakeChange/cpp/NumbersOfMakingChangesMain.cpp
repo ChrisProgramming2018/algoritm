@@ -8,14 +8,24 @@
 
 
 int numberOfWaysToMakeChange(int n, std::vector<int> denoms) {
+  int amount = 0;
   std::cout << "numberOfWaysToMakeChange " << std::endl;
-  std::vector<int> results;
-  for (int i = 0; i<= denoms.size(); i++) {
-    results.push_back(0);
+  std::vector<int> result;
+  for (int i = 0; i<= n; i++) {
+    result.push_back(0);
   }
   // only one possiblity to change 0 
-  results[0] = 1;
-  return results[n];
+  result[0] = 1;
+  for(int i = 0; i <  denoms.size(); i++) {
+    amount = denoms[i];
+    for (int j = 0; j <=n; j++) {
+      if (amount >n) break;
+      if (j >= amount) {
+        result[j] = result[j] + result[j-amount];
+      }
+    }
+  }
+  return result[n];
 }
 
 
