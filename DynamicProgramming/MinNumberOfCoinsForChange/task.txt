@@ -1,0 +1,14 @@
+
+
+
+
+
+Input:
+    param1 :Array of positive integers representing coin denominations 
+    param2: non negative int repesent target amount of money
+
+
+Output:
+    smallest amount of making the change or if its not possible return -1
+
+
