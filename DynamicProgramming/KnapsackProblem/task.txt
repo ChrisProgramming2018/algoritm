@@ -1,0 +1,15 @@
+
+
+
+
+Input: 
+       param1: array of arrays each subarray holds two integer 
+               frist represent the value 
+                second the weight
+        param2: represents the max capacity of the knapsack
+
+
+Compute the maxium value to fit in the knapsack 
+
+Output: value1: value and value2 list of items used
+
