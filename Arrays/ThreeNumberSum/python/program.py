@@ -1,5 +1,19 @@
+# Copyright 2020
+# AlgoExpert Exercise
+# Author: Christian Leininger <info2016frei@gmail.com>
+
 
 def threeNumberSum(array, target):
+    """ Computes sets of 3 integers that sum up to target
+    in O(n**2) time and O(1) space
+
+
+    Args:
+        param1: array (list)
+        param2: target(int)
+
+    Return: list of list with the elements sum up to the target
+    """
     array.sort()
     solution = []
     current_pos = 0
@@ -23,7 +37,7 @@ def threeNumberSum(array, target):
             if res < target:
                 # res needs to get higher
                 lpointer += 1
-                
+
             if res == target:
                 solution.append([array[current_pos], array[lpointer], array[rpointer]])
                 lpointer += 1
