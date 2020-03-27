@@ -58,5 +58,5 @@ class TestProgram(unittest.TestCase):
         self.assertTrue(set([1, 2, 3, 4]) in output)
 
 
-if __name__ == "__main__ ":
+if __name__ == "__main__":
     unittest.main()
