@@ -1,0 +1,8 @@
+
+
+
+Four Number Sum 
+
+Input: non empty array of distinct integers and a int as target.
+
+Output. 2 dim array with 4 numbers that add up to target sum
