@@ -25,10 +25,18 @@ class BST:
             
         return self
 
-    def contains(self, value):
+     def contains(self, value):
         # Write your code here.
-        
-        return False
+        current = self
+        while True:
+            if current.value == value:
+                return True
+            if value >= current.value:
+                current = current.right
+            else:
+                current = current.left
+            if current is None:
+                return False
     
     def remove(self, value):
         # Write your code here.
