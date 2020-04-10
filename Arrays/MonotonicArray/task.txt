@@ -1,0 +1,5 @@
+
+
+
+Check if the elements in an array are non -increasing or non decreasing
+Return True in case array has this property
