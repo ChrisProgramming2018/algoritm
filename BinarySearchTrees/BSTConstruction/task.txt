@@ -1,0 +1,10 @@
+
+
+
+
+
+
+create BST with insert, remove and contains 
+
+BST probety right value is bigger or equal than root
+left value needs to be smaler
