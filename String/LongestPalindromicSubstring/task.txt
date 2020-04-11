@@ -1,0 +1,8 @@
+
+
+
+
+find longest palindromic Substring 
+
+def Palindrom:
+   string is the same back and forward
