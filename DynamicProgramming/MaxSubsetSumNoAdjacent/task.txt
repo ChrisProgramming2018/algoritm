@@ -1,0 +1,5 @@
+
+
+
+Compute the maxSum in an array with positive int which are not adjacent.
+In case array is empty return 0
