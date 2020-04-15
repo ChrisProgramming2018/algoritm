@@ -1,14 +1,22 @@
 
 
 def largestRange(array):
-    # Write your code here.
+    """ Return the start number and number of the end
+    of the largest Range in an Array
+
+    Args:
+       param1(list): array with int
+
+    Return: list length 2 first element start sec end
+
+    """
     min_value = min(array)
     max_value = max(array)
     min_value
     hashTable = {}
     for i in array:
-        hashTable.update({i :True})
-    
+        hashTable.update({i: True})
+
     start = min_value
     end = min_value
     lgStart = start
@@ -16,11 +24,11 @@ def largestRange(array):
     current = min_value
     newStart = False
     while current <= max_value:
-        current +=1
+        current += 1
         if current in hashTable:
             if newStart:
                 start = current
-                newStart =False
+                newStart = False
             end = current
         else:
             newStart = True
