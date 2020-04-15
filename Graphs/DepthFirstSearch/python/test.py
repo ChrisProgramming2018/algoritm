@@ -40,23 +40,21 @@ test5.children[4].children[0].children[1].addChild("Y").addChild("Z")
 
 
 class TestProgram(unittest.TestCase):
+    def test_case_1(self):
+        self.assertEqual(test1.depthFirstSearch([]), ["A", "B", "D", "C"])
 
-	def test_case_1(self):
-		self.assertEqual(test1.depthFirstSearch([]), ["A", "B", "D", "C"])
+    def test_case_2(self):
+        self.assertEqual(test2.depthFirstSearch([]), ["A", "B", "C", "F", "D", "E"])
 
-	def test_case_2(self):
-		self.assertEqual(test2.depthFirstSearch([]), ["A", "B", "C", "F", "D", "E"])
+    def test_case_3(self):
+        self.assertEqual(test3.depthFirstSearch([]), ["A", "B", "C", "D", "F", "E"])
 
-	def test_case_3(self):
-		self.assertEqual(test3.depthFirstSearch([]), ["A", "B", "C", "D", "F", "E"])
+    def test_case_4(self):
+        self.assertEqual(test4.depthFirstSearch([]), ["A", "B", "E", "F", "I", "J", "C", "D", "G", "K", "H"])
 
-	def test_case_4(self):
-		self.assertEqual(test4.depthFirstSearch([]), ["A", "B", "E", "F", "I", "J", "C", "D", "G", "K", "H"])
-
-	def test_case_5(self):
-		self.assertEqual(test5.depthFirstSearch([]), ["A", "B", "E", "Q", "R", "F", "I", "J", "O", "C", "P", "D", "G", "K", "H", "L", "M", "S", "W", "X", "Y", "Z", "T", "U", "V"])
+    def test_case_5(self):
+        self.assertEqual(test5.depthFirstSearch([]), ["A", "B", "E", "Q", "R", "F", "I", "J", "O", "C", "P", "D", "G", "K", "H", "L", "M", "S", "W", "X", "Y", "Z", "T", "U", "V"])
 
 
 if __name__ == "__main__":
-	unittest.main()
-
+    unittest.main()
