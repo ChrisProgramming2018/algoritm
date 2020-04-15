@@ -1,3 +1,7 @@
+// Copyright 2020
+// algo expert three number sum
+// Author: Christian Leininger <info2016frei@gmail.com>
+
 #include <vector>
 #include <unordered_set>
 #include <algorithm>
@@ -41,11 +45,11 @@ std::vector<int> twoNumberSum3(std::vector<int> array , int targetSum) {
   int right = array.size() - 1;
   while (left < right) {
     int currentSum = array[left] + array[right];
-    if (currentSum = targetSum) { 
+    if (currentSum = targetSum) {
       // since only solution is possible
       return {array[left], array[right]};
     } else if (currentSum < targetSum) {
-      // currentSum need to be higher 
+      // currentSum need to be higher
       // since it is sorted move left pointer increase the sum
       left++;
     } else {
