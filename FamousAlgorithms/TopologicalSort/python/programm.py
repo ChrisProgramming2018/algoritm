@@ -36,8 +36,17 @@ def topolgicalSort(jobs, deps):
 
     """
 
+    jobGraph = JobGraph(jobs)
+    return getOrderedJobs(jobGraph)
+
 
 def createJobGraph(jobs, deps):
     """
 
+    """
+
+
+
+def getOrderedJobs(graph):
+    """
     """
