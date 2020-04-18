@@ -21,17 +21,33 @@ class MinHeap:
         """
 
 
+        Args:
+            param1(int)
+            param2(int)
+            param3(heap)
         """
         leftChildIdx = currentIdx * 2 + 1
-        #
+        # until its in the rigth position
         while currentIdx <= endIdx:
             rightChildIdx = currentIdx * 2 + 2
-            if rightChildIdx > endIdx:
-                rightChildIdx = -1
-            # check if left or right child is smaller
+            while rightChildIdx <= endIdx:
+                # check if left child is present
+                leftChildIdx = currentIdx * 2 + 2
+                if leftChildIdx >= endIdx:
+                    leftChildIdx = -1
+                # check if left or right child is smaller
+                if leftChildIdx != -1 and heap[leftChildIdx] < heap[rightChildIdx]:
+                    swapIdx = leftChildIdx
+                else:
+                    swapIdx = rightChildIdx
 
-
-        return array
+                # check if smaller child is smaller then parent
+                if heap[currentIdx] > heap[swapIdx]:
+                    heap[swapIdx], heap[currentIdx] = heap[currentIdx], heap[swapIdx]
+                    currentIdx = swapIdx
+                    leftChildIdx = currentIdx * 2 + 1
+                else:
+                    return
 
     def siftUp(self, currentIdx, heap):
         """
