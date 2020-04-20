@@ -3,8 +3,7 @@
 // Author: Christian Leininger <info2016frei@gmail.com>
 
 #include <gtest/gtest.h>
- #include "./FindClosestValueInBST.h"
-
+#include "./FindClosestValueInBST.h"
 
 BST::BST(int val) {
   value = val;
