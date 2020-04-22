@@ -65,4 +65,5 @@ class TestProgram(unittest.TestCase):
         array = [1, 2, 3, 3, 4, 0, 10, 6, 5, -1, -3, 2, 3]
         expected = 6
         self.assertEqual(program.longestPeak(array), expected)
-
+if __name__ == "__main__":
+    unittest.main()
