@@ -36,12 +36,9 @@ def findClosestValueInBst(tree, target):
         if current_node.value == target:
             return target
         # check if value is closer
-        if abs(target - current_node.value) < small_dif:
+        if abs(target - current_node.value) <= small_dif:
             # in case it is set it as new closest value
+            small_dif = abs(target - current_node.value)
             closest_value = current_node.value
-        if current_node.value < target:
-            # check right part of tree since
-            current_node = current_node.right
-        else:
-            current_node = current_node.left
+
     return closest_value
