@@ -105,16 +105,30 @@ int* LRUCache::getValueFromKey(std::string key) {
 }
 
 
+// ______________________________________________________________
+std::string LRUCache::getMostRecentKey() {
+  return this->listOfMostRecent.head->key;
+}
 
+// ______________________________________________________________
+void LRUCache::evictLeastRecent() {
+  std::string keyToRemove = this->listOfMostRecent.tail->key;
+  this->listOfMostRecent.removeTail();
+  this->cache.erase(keyToRemove);
+}
 
+// ______________________________________________________________
+void LRUCache::updateMostRecent(DoublyLinkedListNode *node) {
+  this->listOfMostRecent.setHeadTo(node);
+}
 
-
-
-
-
-
-
-
+// ______________________________________________________________
+void LRUCache::replaceKey(std::string key, int value) {
+  if (this->cache.find(key) == this->cache.end()) {
+    return;
+  }
+  this->cache[key]->value =value;
+}
 
 
 
