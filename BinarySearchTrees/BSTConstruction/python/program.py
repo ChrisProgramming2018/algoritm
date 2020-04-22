@@ -5,24 +5,20 @@ class BST:
         self.right = None
 
     def insert(self, value):
-        # Write your code here.
         # Do not edit the return statement of this method.
         # can't be emtpy
-        current = self
+        current_node = self
         while True:
-            print(current)
-            if value >= current.value:
-                if current.right is None:
-                    current.right = BST(value)
+            if value < current_node.value:
+                if current_node.left is None:
+                    current_node.left = BST(value)
                     break
-                current = self.right
             else:
-                print(self.left)
-                if current.left is None:
-                    current.left = BST(value)
+                if current_node.right is None:
+                    current_node = BST(value)
                     break
-                current = self.left
-            
+                else:
+                    current_node = current_node.right 
         return self
 
      def contains(self, value):
