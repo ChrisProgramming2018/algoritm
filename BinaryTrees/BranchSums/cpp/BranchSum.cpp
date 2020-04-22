@@ -2,7 +2,7 @@
 
 
 
-#include "./BrunchSum.h"
+#include "./BranchSum.h"
 
 
 // ________________________________________________________________________________________________
@@ -15,7 +15,8 @@ std::vector<int> branchSums(BinaryTree *root) {
 
 // ________________________________________________________________________________________________
 void calculateBranchSums(BinaryTree *node, int runningSum, std::vector<int> &sums) {
-  if (node == NULL) return;
+  if (node == NULL) 
+    return;
   int newRunningSum = runningSum + node->value;
   if (node->left == NULL && node->right == NULL) {
     sums.push_back(newRunningSum);
@@ -25,3 +26,4 @@ void calculateBranchSums(BinaryTree *node, int runningSum, std::vector<int> &sum
   calculateBranchSums(node->left, newRunningSum, sums);
   calculateBranchSums(node->right, newRunningSum, sums);
 }
+
