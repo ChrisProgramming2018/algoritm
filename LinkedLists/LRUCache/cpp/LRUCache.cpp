@@ -78,11 +78,31 @@ LRUCache::LRUCache(int maxSize) {
   this->maxSize = maxSize > 1 ? maxSize : 1;
   this->currentSize = 0;
   this->listOfMostRecent = DoublyLinkedList();
+}
 
+// ______________________________________________________________
+void LRUCache::insertKeyValuePair(std::string key, int value) {
+  if (this->cache.find(key) == this->cache.end()) {
+    if (this->currentSize == this->maxSize) {
+      this->evictLeastRecent();
+    } else {
+      this->currentSize++;
+    }
+    this->cache[key] = new DoublyLinkedListNode(key, value);
+  } else { 
+    this->replaceKey(key, value);
+  }
+  this->updateMostRecent(this->cache[key]);
+}
 
-
-
-
+// ______________________________________________________________
+int* LRUCache::getValueFromKey(std::string key) {
+  if (this->cache.find(key) == this->cache.end()) {
+    return NULL;
+  }
+  this->updateMostRecent(this->cache[key]);
+  return &this->cache[key]->value;
+}
 
 
 
