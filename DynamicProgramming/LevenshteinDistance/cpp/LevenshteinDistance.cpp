@@ -6,19 +6,19 @@
 #include "./LevenshteinDistance.h"
 
 // ______________________________________________________________
-int LevenshteinDistance(std::string str1, std::string str2) {
+int levenshteinDistance(std::string str1, std::string str2) {
   std::string small = str1.length() < str2.length() ? str1 : str2;
   std::string big = str1.length() >= str2.length() ? str1 : str2;
   int *evenEdits = new int[small.length() + 1];
   int *oddEdits = new int[small.length() + 1];
-  for (int j = 0; j < small.length() + , j++) {
+  for (int j = 0; j < small.length() + 1; j++) {
     evenEdits[j] = j;
   }
 
   int *currentEdits;
   int *previousEdits;
-  for (int i = 0; j < big.length(); j++) {
-    if (i% 2 == 1) {
+  for (int i = 0; i < big.length() + 1; i++) {
+    if (i % 2 == 1) {
       currentEdits = oddEdits;
       previousEdits = evenEdits;
     } else {
@@ -30,7 +30,7 @@ int LevenshteinDistance(std::string str1, std::string str2) {
       if (big[i - 1] == small[j - 1]) {
         currentEdits[j] = previousEdits[j - 1];
       } else {
-        currentEdits[j] = 1 + min(previousEdits[j - 1], min(previousEdits[j], currentEdits[j - 1]));
+        currentEdits[j] = 1 + std::min(previousEdits[j - 1], std::min(previousEdits[j], currentEdits[j - 1]));
       }
     }
   }
