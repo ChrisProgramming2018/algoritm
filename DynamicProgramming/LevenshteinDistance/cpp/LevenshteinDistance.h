@@ -4,11 +4,12 @@
 
 
 #include <vector>
+#include <string>
 
 
 #ifndef THREAD_H_
 #define THREAD_H_
 
-int LevenshteinDistance(std::string str1, std::string str2);
+int levenshteinDistance(std::string str1, std::string str2);
 
 #endif //
