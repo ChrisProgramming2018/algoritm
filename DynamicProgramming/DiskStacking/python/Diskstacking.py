@@ -16,6 +16,13 @@ def diskStacking(disks):
 
 
 
+def build_sequene(array, seq, Idx):
+    """
+
+    """
+
+
+
 
 
 def validDisk(disk_c, disk_old):
@@ -28,6 +35,16 @@ def validDisk(disk_c, disk_old):
 
     Return bool
     
+    >>> validDisk([1,2,3], [2,3,4])
+    False
+    >>> validDisk([3,4,5], [2,3,4])
+    True
     """
 
-    return disk_old[0] < disk_c[0] and disk_old[1] < disk_c[01 and disk_old[2] < disk_c[2] 
+    return disk_old[0] < disk_c[0] and disk_old[1] < disk_c[1] and disk_old[2] < disk_c[2] 
+
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
