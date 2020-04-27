@@ -49,5 +49,5 @@ class TestProgram(unittest.TestCase):
         self.assertEqual(program.minNumberOfJumps([3, 12, 2, 1, 2, 3, 15, 1, 1, 1, 3, 2, 3, 2, 1, 1, 1, 1]), 3)
 
 
-if _name__ == "__main__":
+if __name__ == "__main__":
     unittest.main()
