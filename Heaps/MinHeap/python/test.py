@@ -384,3 +384,6 @@ class TestProgram(unittest.TestCase):
                 break
             self.assertEqual(test9.heap[currentIdx] >= test9.heap[parentIdx], True)
 
+
+if __name__ == "__main__":
+    unittest.main()
