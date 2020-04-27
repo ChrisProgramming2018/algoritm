@@ -28,101 +28,54 @@ class MinHeap:
         """
         leftChildIdx = currentIdx * 2 + 1
         # until its in the rigth position
-        while currentIdx <= endIdx:
+        while leftChildIdx <= endIdx:
             rightChildIdx = currentIdx * 2 + 2
-            while rightChildIdx <= endIdx:
-                # check if left child is present
-                leftChildIdx = currentIdx * 2 + 2
-                if leftChildIdx >= endIdx:
-                    leftChildIdx = -1
-                # check if left or right child is smaller
-                if leftChildIdx != -1 and heap[leftChildIdx] < heap[rightChildIdx]:
-                    swapIdx = leftChildIdx
-                else:
-                    swapIdx = rightChildIdx
+            # check if left child is present
+            if rightChildIdx > endIdx:
+                    rightChildIdx = -1
+            # check if left or right child is smaller
+            if rightChildIdx != -1 and heap[rightChildIdx] < heap[leftChildIdx]:
+                swapIdx = rightChildIdx
+            else:
+                swapIdx = leftChildIdx
 
-                # check if smaller child is smaller then parent
-                if heap[currentIdx] > heap[swapIdx]:
-                    heap[swapIdx], heap[currentIdx] = heap[currentIdx], heap[swapIdx]
-                    currentIdx = swapIdx
-                    leftChildIdx = currentIdx * 2 + 1
-                else:
-                    return
+            # check if smaller child is smaller then parent
+            if heap[currentIdx] > heap[swapIdx]:
+                heap[swapIdx], heap[currentIdx] = heap[currentIdx], heap[swapIdx]
+                currentIdx = swapIdx
+                leftChildIdx = currentIdx * 2 + 1
+            else:
+                return
 
-    def siftUp(self, currentIdx, heap):
-        """
+    def siftUp(self, currentIdx):
+        """ Move the value up until its correct position
 
 
         """
+        parentIdx = (currentIdx - 1) // 2
+        # move up child is smaller
+        while currentIdx > 0 and self.heap[currentIdx] < self.heap[parentIdx]:
+            self.heap[currentIdx], self.heap[parentIdx] = self.heap[parentIdx], self.heap[currentIdx] 
+            currentIdx = parentIdx
+            parentIdx = (currentIdx - 1) // 2
+
+
     def peek(self):
-        # Write your code here.
-        pass
+        """
+        Return: min element (Root node)
+        """
+        return self.heap[0]
 
     def remove(self):
         # swap first and last element
-        self.heap[-1], self.heap[0] = self.heap[0], self.heap[-1]
+        self.heap[len(self.heap) - 1], self.heap[0] = self.heap[0], self.heap[len(self.heap )-1]
         value = self.heap.pop()
         # restore the min heap proberty
-
+        self.siftDown(0, len(self.heap) - 1, self.heap)
+        return value
     def insert(self, value):
         """
 
         """
         self.heap.append(value)
-
-
-    def getIdxParent(self, idx):
-        """
-
-        """
-        return int(math.ceil((idx-2)/2.))
-    def getIdxRightChild(self, idx):
-        """
-
-        """
-        return idx * 2 + 2
-
-    def getIdxLeftChild(self, idx):
-        """
-
-        """
-        return idx * 2 + 1
-
-
-    def getParent(self, idx):
-        """
-        """
-        pos = math.ceil((idx-2)/2.)
-        try:
-            return self.heap[pos]
-        except:
-            return None
-
-    def getLeftChild(self, index):
-        """
-        """
-        pos = index * 2 + 1
-        try:
-            return self.heap[pos]
-        except:
-            return None
-
-
-    def getRightChild(self, index):
-        """
-
-        """
-        pos = index * 2 + 2
-        try:
-            return self.heap[pos]
-        except:
-            return None
-
-    def getMin(self):
-        """
-
-        """
-        if self.length == 0:
-            return None
-        return self.heap[0]
-
+        self.siftUp(len(self.heap) - 1) 
