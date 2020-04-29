@@ -5,6 +5,20 @@
 #include "./TopologicalSort.h"
 
 // ______________________________________________________________
-JobGraph* JobGraph::createGraphNode(std::vector<int> jobs, std::vector<std::vector<int>> deps) {
+std::vector<int> topologicalSort(std::vector<int> jobs, std::vector<std::vector<int>> deps) {
+  JobGraph *jobGraph = (jobs, deps);
+  
+
+
+
 }
+
+
+
+// ______________________________________________________________
+JobGraph* createGraphNode(std::vector<int> jobs, std::vector<std::vector<int>> deps) {
+
+
+}
+
 
