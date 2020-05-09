@@ -5,14 +5,22 @@
 
 
 
-def invertBinaryTree(tree):
-    currentNode = tree
-    queue = []
-    queue.append(currentNode)
-    while len(queue) != 0:
-        currentNode = queue.pop(0)
-        if currentNode is not None:
-            queue.append(currentNode.left)
-            queue.append(currentNode.right)
-            currentNode.left, currentNode.right = currentNode.right, currentNode.left
-    return tree
+def iterativeInOrderTraversal(tree, callback):
+    # Write your code here.
+    previousNode = None
+    currNode = tree
+    while currNode is not None:
+        if previousNode is None or previousNode == currNode.parent:
+            if currNode.left is not None:
+                nextNode = currNode.left
+            else:
+                callback(currNode)
+                nextNode = currNode.right if currNode.right is not None else currNode.parent
+        elif  previousNode == currNode.left:
+            callback(currNode)
+            nextNode = currNode.right if currNode.right is not None else currNode.parent
+        else:
+            nextNode = currNode.parent
+
+        previousNode =currNode
+        currNode = nextNode
