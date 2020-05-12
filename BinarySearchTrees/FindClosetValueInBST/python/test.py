@@ -24,6 +24,7 @@ class BST:
                 self.right.insert(value)
         return self
 
+
 test = BST(100).insert(5).insert(15).insert(5).insert(2).insert(1).insert(22) \
         .insert(1).insert(1).insert(3).insert(1).insert(1).insert(502) \
         .insert(55000).insert(204).insert(205).insert(207).insert(206) \
