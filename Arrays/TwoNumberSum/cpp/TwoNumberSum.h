@@ -6,15 +6,12 @@
 #include <iostream>
 #include <vector>
 
-#ifndef THREAD_H_
-#define THREAD_H_
+#ifndef TWONUMBERSUM_H_
+#define TWONUMBERSUM_H_
 
 
 std::vector<int> twoNumberSum(std::vector<int> array , int targetSum);
 std::vector<int> twoNumberSum2(std::vector<int> array , int targetSum);
 std::vector<int> twoNumberSum3(std::vector<int> array , int targetSum);
 
-
-
-#endif //
-
+#endif  // TWONUMBERSUM_H_
