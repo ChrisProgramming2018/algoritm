@@ -11,9 +11,9 @@
 // ________________________________________________________________________________________________
 // O(n²) time | O(1) space
 std::vector<int> twoNumberSum(std::vector<int> array , int targetSum) {
-  for (int i = 0; i < array.size() - 1; i++) {
+  for (size_t i = 0; i < array.size() - 1; i++) {
     int firstNum = array[i];
-    for (int j = i + 1; j < array.size(); j++) {
+    for (size_t j = i + 1; j < array.size(); j++) {
       int secondNum = array[j];
       if (firstNum + secondNum == targetSum) {
         if (firstNum > secondNum) {
@@ -31,7 +31,7 @@ std::vector<int> twoNumberSum(std::vector<int> array , int targetSum) {
 // O(n²) time | O(1) space
 std::vector<int> twoNumberSum2(std::vector<int> array , int targetSum) {
   std::unordered_set<int> nums;
-  for (int num : array) {
+  for (size_t num : array) {
     int potentialMatch = targetSum - num;
     if (nums.find(potentialMatch) !=nums.end()) {
       return std::vector<int>{potentialMatch, num};
@@ -46,7 +46,7 @@ std::vector<int> twoNumberSum2(std::vector<int> array , int targetSum) {
 // ________________________________________________________________________________________________
 // O(n log n) time | O(1) space
 std::vector<int> twoNumberSum3(std::vector<int> array , int targetSum) {
-  std::sort(array.begin(), array.end());
+  std::sort(array.begin(), array.end());     // use sorted array to find faster
   int left  = 0;
   int right = array.size() - 1;
   while (left < right) {
