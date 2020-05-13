@@ -1,10 +1,36 @@
+# Copyright 2020
+# Author: Christian Leininger <info2016frei@gmail.com>
 
 
-def findClosestValueInBst(tree, target):
+# ___________________________________________________________________
+def findClosestValueInBstRecursive(tree, target):
+    """ use the proberty of the binear Search tree
+    that all values ld are smaller
+    than root and right greater or equal
+    Run time:
+    Worst case is O(n) if the tree has depth n
+    Average case is O(log n) depth of tree
+    Space O(n) recursion stack in worst case
+    Args:
+       param1:(class BST ) tree value left right
+       param2:(int) target
+
+    Return: the closet value in the BST
+    """
     return findClosestValueInBstHelper(tree, target, float("inf"))
 
 
+# ___________________________________________________________________
 def findClosestValueInBstHelper(tree, target, closest):
+    """ call recursivly the dfs  to find closest element
+    Args:
+       param1:(class BST ) tree value left right
+       param2:(int) target
+       param3:(int) closet so far
+
+    Return: the closet value in the BST
+
+    """
     current_node = tree
     while current_node is not None:
         if abs(target - closest) > abs(target - tree.value):
@@ -17,14 +43,14 @@ def findClosestValueInBstHelper(tree, target, closest):
             break
 
     return closest
-    
-    
+
+
 # ___________________________________________________________________
 def findClosestValueInBst(tree, target):
-    """ use the proberty of the binear Search tree 
-    that all values of the left child are smaller 
-    than root and right greater or equal 
-    Run time: 
+    """ use the proberty of the binear Search tree
+    that all values of the left child are smaller
+    than root and right greater or equal
+    Run time:
     Worst case is O(n) if the tree has depth n
     Average case is O(log n) depth of tree
 
