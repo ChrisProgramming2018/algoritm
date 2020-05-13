@@ -3,21 +3,19 @@
 // Author: Christian Leininger <info2016frei@gmail.com>
 
 
-#include <iostream>
-#include <thread>
 #include <string>
 
 
-#ifndef THREAD_H_
-#define THREAD_H_
+#ifndef FINDCLOSESTVALUEINBST_H_
+#define FINDCLOSESTVALUEINBST_H_
 
 class BST {
  public:
   int value;
-  BST *left;  
+  BST *left;
   BST *right;
 
-  BST(int val);
+  explicit BST(int val);
   BST &insert(int val);
 };
 
@@ -25,4 +23,4 @@ class BST {
 int findClosestValueInBst(BST *tree, int target);
 int findClosestValueInBstHelper(BST *tree, int target, double closest);
 
-#endif //
+#endif  //  FINDCLOSESTVALUEINBST_H_
