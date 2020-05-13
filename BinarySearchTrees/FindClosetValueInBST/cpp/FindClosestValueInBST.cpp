@@ -1,8 +1,10 @@
+// Copyright 2020
+// cpp course
+// Author: Christian Leininger <info2016frei@gmail.com>
 
 
-
-#include <cmath>
 #include <float.h>
+#include <cmath>
 #include "./FindClosestValueInBST.h"
 
 
@@ -25,6 +27,6 @@ int findClosestValueInBstHelper(BST *tree, int target, double closest) {
   } else if (target > tree->value && tree->right != NULL) {
     return  findClosestValueInBstHelper(tree->right, target, closest);
   } else {
-    return (int)closest;
+    return static_cast<int>(closest);
   }
 }
