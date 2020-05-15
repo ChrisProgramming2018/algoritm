@@ -28,7 +28,7 @@ def getNthFib1(n, mem):
         param1:(int) which fibonacci number to compute
 
     Returns:
-       int: the n fibonaccci number
+       int: the n fibonacci number
 
     """
     if n in mem:
@@ -43,7 +43,16 @@ def getNthFib1(n, mem):
     return mem[n]
 
 
+# use dynamic programming (cache and reuse to solve in O(n)
 def fib_mem(n, mem):
+    """ Use dynamic programming to solve in O(n) and O(n) space
+
+    Args:
+       param1(int): n the n th fib number
+       param2(dict) mem save the computed numbers
+
+       Returns: the n fib number
+    """
     if n in mem:
         return mem[n]
     if len(mem) >= n:
@@ -58,7 +67,14 @@ def fib_mem(n, mem):
     return fib_mem(n - 1, mem) + fib_mem(n - 2, mem)
 
 
-def helper(n):
+def dynamic_programming_fib(n):
+    """
+    Call recursivly the fib_mem function
+    Args:
+        param1(int): compute the n fibonacci number
+
+    Returns; the n fibonacci number
+    """
     mem = {}
     res = fib_mem(n, mem)
     return res
