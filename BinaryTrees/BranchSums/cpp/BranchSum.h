@@ -7,23 +7,24 @@
 #include <vector>
 
 
-#ifndef THREAD_H_
-#define THREAD_H_
+#ifndef BRANCHSUM_H_
+#define BRANCHSUM_H_
 
-clas BinaryTree {
+class BinaryTree {
  public:
   int value;
   BinaryTree *left;
   BinaryTree * right;
-
-  BinaryTree(int value) {
-    this-> value = value;
-    left = NULL;
-    right = NULL;
-  }
+  explicit BinaryTree(int value);
 };
 
-void calculateBranchSums(BinaryTree *node, int runningSum, std::vector<int> sum);
-std::vector<int> branchSums(BinaryTree *root);
-#endif //
+class TestBinaryTree : public BinaryTree {
+ public:
+  explicit TestBinaryTree(int value) : BinaryTree(value) {}
+  BinaryTree* insert(std::vector<int> values, int i = 0);
+};
 
+void calculateBranchSums(BinaryTree *node, const int runningSum, std::vector<int> &sums);
+std::vector<int> branchSums(BinaryTree *root);
+
+#endif  // BRANCHSUM_H_
