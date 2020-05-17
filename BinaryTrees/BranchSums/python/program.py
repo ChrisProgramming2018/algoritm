@@ -1,6 +1,8 @@
+# Copyright 2020
+# Author: Christian Leininger <info2016frei@gmail.com>
+
+
 # implemention of Brunch sum
-
-
 class BinaryTree():
     def __init__(self, value):
         self.value = value
