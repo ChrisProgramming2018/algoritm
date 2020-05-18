@@ -1,5 +1,5 @@
-# Add, edit, or remove tests in this file.
-# Treat it as your playground!
+# Copyright 2020
+# Author: Christian Leininger <info2016frei@gmail.com>
 
 import program
 import unittest
