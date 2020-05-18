@@ -1,5 +1,5 @@
-# create a class that represents a tree and has the depth first function to
-# traverses the nodes
+# Copyright 2020
+# Author: Christian Leininger <info2016frei@gmail.com>
 
 
 class Node:
@@ -30,9 +30,8 @@ class Node:
             param1:(list) array of the node
         Returns: list of the names in the depth first order
         """
-
+        # add current node to final order
         array.append(self.name)
-
         #  base case if a node has no children (leaf Node)
         if len(self.children) == 0:
             return array
