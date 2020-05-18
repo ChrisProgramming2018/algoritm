@@ -4,16 +4,16 @@
 
 
 #include <vector>
-#include <string>
+#include "./DepthFirstSearch.h"
 
- 
+
 // ________________________________________________________________________________________________
 Node::Node(std::string name) {
   this->name = name;
 }
 
 // ________________________________________________________________________________________________
-std::vector<string> Node::depthFirstSearch(std::vector<std::string>* array) {
+std::vector<std::string> Node::depthFirstSearch(std::vector<std::string>* array) {
   array->push_back(this->name);
   for (int i = 0; i < this->children.size(); i++) {
     children[i]->depthFirstSearch(array);
