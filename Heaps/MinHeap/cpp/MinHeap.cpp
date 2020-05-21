@@ -27,3 +27,7 @@ void MinHeap::siftDown(int currentIdx, int endIdx, std::vector<int> array) {
   while (idxLeftChild <= endIdx) {
     idxRightChild = currentIdx * 2 + 2;
     //  check if its exists
+    if idxRightChild > endIdx:
+      idxRightChild = -1
+   // check if right child exist if its smaller
+   if (idxRightChild != -1 && _heap.at(idxRightChild) < 
