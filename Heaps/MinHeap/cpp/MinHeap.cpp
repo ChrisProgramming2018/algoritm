@@ -23,11 +23,28 @@ std::vector<int>  MinHeap::build(std::vector<int> array) {
 // ______________________________________________________________
 void MinHeap::siftDown(int currentIdx, int endIdx, std::vector<int> array) {
   int idxLeftChild = currentIdx * 2 + 1;
+  int swapIdx = -1;
   // if the element of the current pos down to its correct pos
   while (idxLeftChild <= endIdx) {
     idxRightChild = currentIdx * 2 + 2;
     //  check if its exists
     if idxRightChild > endIdx:
-      idxRightChild = -1
-   // check if right child exist if its smaller
-   if (idxRightChild != -1 && _heap.at(idxRightChild) < 
+      idxRightChild = -1;
+    // check if right child exist if its smaller
+    if (idxRightChild != -1 && _heap.at(idxRightChild) < _heap.at(idxLeftChild)) {
+      swapIdx = idxRightChild;
+    } else {
+      swapIdx = idxLeftChild;
+    }
+    // check if currentIdx is smaller then the smallest child
+    if (_heap.at(currentIdx) < _heap.at(swapIdx)) {
+      // element is at the correct position
+      return;
+    } else {
+      // swap and update the current idx and left child
+      swap(swapIdx, currentIdx);
+      currentIdx = swapIdx;
+      idxLeftChild = currentIdx * 2 + 1;
+    }
+  }
+}   
