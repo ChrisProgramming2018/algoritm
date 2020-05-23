@@ -47,4 +47,15 @@ void MinHeap::siftDown(int currentIdx, int endIdx, std::vector<int> array) {
       idxLeftChild = currentIdx * 2 + 1;
     }
   }
-}   
+}
+
+// ______________________________________________________________
+int MinHeap::peek() {
+  return _heap[0];
+}
+
+// ______________________________________________________________
+void MinHeap::insert(int value) {
+  _heap.push_back(value);
+  shiftUp(_heap.size() - 1);
+}
