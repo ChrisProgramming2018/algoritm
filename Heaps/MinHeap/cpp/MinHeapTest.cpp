@@ -5,12 +5,11 @@
 
 #include "MinHeap.h"
 #include <gtest/gtest.h>
-#include <iostream>
 
 
 
 TEST(MinHeapTest, MinHeap) {
-  std::vector<int> array = {8,9,1,3};
+  std::vector<int> array = {8, 9, 1, 3};
   MinHeap  minHeap(array);
   ASSERT_EQ(minHeap.peek(), 1);
   minHeap.insert(-8);
@@ -19,6 +18,4 @@ TEST(MinHeapTest, MinHeap) {
   ASSERT_EQ(minHeap.peek(), 1);
   minHeap.insert(8);
   ASSERT_EQ(minHeap.peek(), 1);
-
-
 }
