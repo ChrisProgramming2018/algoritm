@@ -12,6 +12,10 @@
 class MinHeap {
  public:
   std::vector<int> build(std::vector<int> array);
+  int peek();
+  void insert(int value) {
+  void siftDown(int currentIdx, int endIdx, std::vector<int> array);
+  std::vector<int> _heap;
 };
 #endif  // MINHEAP_H_
 
