@@ -20,6 +20,10 @@ class DoublyLinkedList {
  public:
   Node *_head;
   Node *_tail;
+  void setHead(Node node);
+  void setTail(Node node);
+  void insertBefore(Node *node, Node *nodeToInsert);
+  void insertAfter(Node *node, Node *nodeToInsert);
 };
 
 #endif  // LINKEDLIST_H_
