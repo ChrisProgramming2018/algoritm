@@ -1,5 +1,6 @@
-
-
+// Copyright 2020
+// caesar Cypher Encryptor
+// Author: Christian Leininger <info2016frei@gmail.com>
 
 
 #include <vector>
