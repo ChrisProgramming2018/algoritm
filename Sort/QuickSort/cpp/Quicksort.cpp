@@ -8,21 +8,47 @@
 // ______________________________________________________________
 Quicksort::Quicksort(std::vector<int> array) {
   _array = array;
+  _random = false;
 }
 
 // ______________________________________________________________
-std::vector<int> Quicksort::quicksortMain(std::vector<int> array, bool random) {
+std::vector<int> Quicksort::quicksortMain(bool random) {
 }
 
 // ______________________________________________________________
-std::vector<int> Quicksort::divideSort(std::vector<int> array, int leftIdx, int rightIdx) {
-  int pivotPos = leftIdx;
-  int pivotElement = array[leftIdx];
+void Quicksort::divideSort(int leftIdx, int rightIdx) {
+  int pivotIdx = leftIdx;
+  int pivotElement = _array[leftIdx];
   if (_random) {
-    randomNumber(leftIdx, rightIdx);
+     pivotIdx = randomNumber(leftIdx, rightIdx);
+     pivotElement = _array[pivotIdx];
   }
+  int lp = leftIdx;
+  int rp = rightIdx;
+  // swap pivo element to the first position
+  swap(leftIdx, pivotIdx);
+  // swap all smaller or equal to pivo to the left
+  while (true) {
+    while (lp < rightIdx && _array[lp] <= pivotElement) {
+      lp++;
+    }
+    while (rp >= leftIdx && _array[rp] > pivotElement) {
+      rp--;
+    }
+    if (lp >= rp) { break; }
+    swap(lp, rp);
+  }
+
+  if (_array[leftIdx] >= pivotElement) { lp--; }
+  swap(leftIdx, lp);
 }
 
+// ______________________________________________________________
+void Quicksort::swap(int leftIdx, int rightIdx) {
+  int tmp = _array[leftIdx];
+  _array[leftIdx] = _array[rightIdx];
+  _array[rightIdx] = tmp;
+}
 
 // ______________________________________________________________
 int Quicksort::randomNumber(int leftIdx, int rightIdx) {

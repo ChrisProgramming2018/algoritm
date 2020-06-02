@@ -9,12 +9,14 @@
 #ifndef QUICKSORT_H_
 #define QUICKSORT_H_
 class Quicksort {
+ public:
   std::vector<int> _array;
   bool _random;
   explicit Quicksort(std::vector<int> array);
-  std::vector<int> quicksortMain(std::vector<int> array, bool random);
-  std::vector<int> divideSort(std::vector<int> array, int leftIdx, int rightIdx);
+  std::vector<int> quicksortMain(bool random);
+  void divideSort(int leftIdx, int rightIdx);
   int randomNumber(int leftIdx, int rightIdx);
+  void swap(int leftIdx, int rightIdx);
 };
 #endif  // QUICKSORT_H_
 
