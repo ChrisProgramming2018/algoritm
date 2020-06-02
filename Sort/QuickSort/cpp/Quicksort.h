@@ -4,14 +4,17 @@
 
 
 #include <vector>
-
+#include <stdlib.h>  
 
 #ifndef QUICKSORT_H_
 #define QUICKSORT_H_
-class QuickSort {
+class Quicksort {
   std::vector<int> _array;
   bool _random;
-  QuickSort(std::vector<int> array, bool random);
+  explicit Quicksort(std::vector<int> array);
+  std::vector<int> quicksortMain(std::vector<int> array, bool random);
+  std::vector<int> divideSort(std::vector<int> array, int leftIdx, int rightIdx);
+  int randomNumber(int leftIdx, int rightIdx);
 };
 #endif  // QUICKSORT_H_
 
