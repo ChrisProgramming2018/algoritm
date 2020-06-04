@@ -4,19 +4,32 @@
 
 
 #include "./Quicksort.h"
-
 // ______________________________________________________________
 Quicksort::Quicksort(std::vector<int> array) {
   _array = array;
   _random = false;
+  _pivot = 0;
 }
 
 // ______________________________________________________________
 std::vector<int> Quicksort::quicksortMain(bool random) {
+  _random = random;
+  recursive(0, _array.size() - 1);
+  return _array;
+}
+
+
+// ______________________________________________________________
+void Quicksort::recursive(int leftIdx, int rightIdx) {
+  if (leftIdx >= rightIdx) { return; }
+
+  int pivot = divideSort(leftIdx, rightIdx);
+  recursive(leftIdx, pivot - 1);
+  recursive(pivot + 1, rightIdx);
 }
 
 // ______________________________________________________________
-void Quicksort::divideSort(int leftIdx, int rightIdx) {
+int Quicksort::divideSort(int leftIdx, int rightIdx) {
   int pivotIdx = leftIdx;
   int pivotElement = _array[leftIdx];
   if (_random) {
@@ -29,19 +42,22 @@ void Quicksort::divideSort(int leftIdx, int rightIdx) {
   swap(leftIdx, pivotIdx);
   // swap all smaller or equal to pivo to the left
   while (true) {
-    while (lp < rightIdx && _array[lp] <= pivotElement) {
+    while (lp < rp && _array[lp] <= pivotElement) {
       lp++;
     }
-    while (rp >= leftIdx && _array[rp] > pivotElement) {
+    while (rp >= lp && _array[rp] > pivotElement) {
       rp--;
     }
     if (lp >= rp) { break; }
     swap(lp, rp);
   }
 
-  if (_array[leftIdx] >= pivotElement) { lp--; }
+  if (_array[lp] >= pivotElement) { lp--; }
   swap(leftIdx, lp);
+
+  return lp;
 }
+
 
 // ______________________________________________________________
 void Quicksort::swap(int leftIdx, int rightIdx) {
@@ -52,7 +68,10 @@ void Quicksort::swap(int leftIdx, int rightIdx) {
 
 // ______________________________________________________________
 int Quicksort::randomNumber(int leftIdx, int rightIdx) {
-  int dif = rightIdx -leftIdx;
-  int randamVariable = rand() % dif + leftIdx;
+  int mod = rightIdx - leftIdx;
+  unsigned int dif_n = rightIdx - leftIdx;
+  unsigned int *dif = &dif_n;
+  // int randamVariable = rand_r() % dif + leftIdx;
+  int randamVariable = rand_r(dif) % mod + leftIdx;
   return randamVariable;
 }
