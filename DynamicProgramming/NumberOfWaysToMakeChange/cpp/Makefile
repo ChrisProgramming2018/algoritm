@@ -17,7 +17,7 @@ test: $(TEST_BINARIES)
 	for T in $(TEST_BINARIES); do ./$$T; done
 
 checkstyle:
-	python3 ../cpplint.py --repository=. *.h *.cpp
+	python3 ../../../cpplint.py --repository=. *.h *.cpp
 
 clean:
 	rm -f *.o

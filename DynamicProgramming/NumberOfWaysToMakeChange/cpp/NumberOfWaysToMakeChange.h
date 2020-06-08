@@ -1,15 +1,16 @@
 // Copyright 2020
-// cpp course
+// NumberOfWaysToMakeChange
 // Author: Christian Leininger <info2016frei@gmail.com>
 
 
 #include <vector>
 
-#ifndef THREAD_H_
-#define THREAD_H_
+#ifndef NUMBEROFWAYSTOMAKECHANGE_H_
+#define NUMBEROFWAYSTOMAKECHANGE_H_
 
 
 int numberOfWaysToMakeChange(int n, std::vector<int> denoms);
+int numberOfWaysToMakeChange2(int n, std::vector<int> denoms);
 
-#endif //
+#endif  // NUMBEROFWAYSTOMAKECHANGE_H_
 
